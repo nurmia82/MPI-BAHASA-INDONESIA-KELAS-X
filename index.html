@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123b56">
+<title>MPI Bahasa Indonesia | Struktur Teks Anekdot</title>
+<style>
+:root{--navy:#123b56;--blue:#176b87;--teal:#25a18e;--gold:#ffca58;--paper:#f4f8fb;--ink:#203442;--muted:#5f7180;--white:#fff;--pink:#ffe6e6;--green:#dff7e9}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(125deg,var(--navy),var(--blue));color:#fff;padding:24px max(18px,calc((100% - 1100px)/2));}
+header .eyebrow{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#ccecf4;font-weight:700}
+header h1{font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.15;margin:.35rem 0}
+header p{margin:.4rem 0 0;max-width:760px;color:#e4f4f7}
+nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px max(12px,calc((100% - 1100px)/2));background:#fff;box-shadow:0 3px 12px #16364a12;position:sticky;top:0;z-index:5}
+button,.navbtn{font:inherit;border:0;cursor:pointer;border-radius:12px;padding:10px 14px;font-weight:700;transition:transform .15s,filter .15s}
+button:hover,.navbtn:hover{filter:brightness(.97);transform:translateY(-1px)}button:focus-visible,.navbtn:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.navbtn{background:#edf4f7;color:var(--navy)}.navbtn.active{background:var(--navy);color:#fff}
+main{max-width:1100px;margin:auto;padding:24px 16px 56px}.screen{display:none;animation:fade .25s ease}.screen.active{display:block}
+@keyframes fade{from{opacity:.2;transform:translateY(5px)}to{opacity:1;transform:none}}
+.hero{background:linear-gradient(135deg,#e2f6f2,#e9f2ff);border:1px solid #d4e7ec;border-radius:24px;padding:clamp(20px,4vw,38px);display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:center}
+.hero h2{font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.2;margin:8px 0}.hero-art{font-size:clamp(4rem,10vw,7rem);text-align:center}
+.pill{display:inline-block;background:#fff;border:1px solid #d8e7eb;color:var(--blue);border-radius:999px;padding:5px 11px;font-size:.85rem;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.card{background:#fff;border:1px solid #dfe8ed;border-radius:18px;padding:20px;box-shadow:0 5px 18px #123b5608}.card h3{margin:.25rem 0 .5rem}.icon{font-size:2rem}.card p{color:var(--muted);margin:.4rem 0 1rem}
+.primary{background:var(--teal);color:#fff}.secondary{background:var(--navy);color:#fff}.light{background:#edf4f7;color:var(--navy)}.gold{background:var(--gold);color:#3d3218}
+h2.section-title{font-size:clamp(1.5rem,3vw,2rem);margin:0 0 8px;color:var(--navy)}.lead{color:var(--muted);margin-top:0}
+.structure{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}.step{border-radius:14px;padding:14px;background:#fff;border:1px solid #dce8ed}.step b{display:block;color:var(--blue)}.step small{color:var(--muted)}
+.callout{padding:15px 18px;background:#fff8df;border-left:5px solid var(--gold);border-radius:10px;margin:16px 0}
+.story{background:#fff;border:1px solid #dfe8ed;border-radius:18px;padding:22px;margin:16px 0}.story h3{margin-top:0}.story p{margin:.5rem 0}.story-label{font-weight:800;color:var(--blue)}
+.activity-row{display:grid;grid-template-columns:1fr 1.2fr;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #e5edf1}.activity-row:last-child{border:0}select{width:100%;padding:11px;border:1px solid #c8d8e0;border-radius:10px;background:#fff;font:inherit;color:var(--ink)}
+.feedback{margin-top:14px;padding:13px 15px;border-radius:12px;background:#edf4f7;min-height:48px}.feedback.good{background:var(--green)}.feedback.bad{background:var(--pink)}
+.quiz-question{border:1px solid #e0e9ee;border-radius:15px;padding:18px;margin:14px 0;background:#fff}.quiz-question legend{font-weight:800;padding:0 6px}.option{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:10px;cursor:pointer}.option:hover{background:#f2f7f9}.option input{margin-top:6px;accent-color:var(--teal)}
+.scoreboard{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.scorebox{background:#fff;border:1px solid #dce8ed;border-radius:14px;padding:14px 18px;min-width:140px}.scorebox strong{display:block;font-size:1.6rem;color:var(--blue)}
+footer{text-align:center;color:var(--muted);padding:20px;border-top:1px solid #dce8ed;background:#fff;font-size:.9rem}
+.hidden{display:none!important}.progress{height:9px;background:#e4edf1;border-radius:99px;overflow:hidden;margin:12px 0}.progress span{height:100%;display:block;background:var(--teal);width:0;transition:width .25s}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-art{order:-1}.grid{grid-template-columns:1fr}.structure{grid-template-columns:1fr 1fr}.activity-row{grid-template-columns:1fr;gap:6px}nav{position:static}.navbtn{flex:1 1 auto}}
+@media print{nav,button,footer{display:none!important}main{max-width:none}.screen{display:block!important;page-break-after:always}.hero,.card,.story{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Media Pembelajaran Interaktif • Kurikulum Merdeka • Fase E</div>
+  <h1>Menjelajah Struktur Teks Anekdot</h1>
+  <p>Bahasa Indonesia · Kelas X SMK · Belajar melalui contoh, simulasi, kuis, dan refleksi.</p>
+</header>
+<nav aria-label="Navigasi utama">
+  <button class="navbtn active" data-screen="beranda">🏠 Beranda</button>
+  <button class="navbtn" data-screen="tujuan">🎯 Tujuan</button>
+  <button class="navbtn" data-screen="materi">📘 Materi</button>
+  <button class="navbtn" data-screen="contoh">📖 Contoh</button>
+  <button class="navbtn" data-screen="simulasi">🧩 Simulasi</button>
+  <button class="navbtn" data-screen="kuis">✍️ Kuis</button>
+  <button class="navbtn" data-screen="refleksi">💡 Refleksi</button>
+</nav>
+<main>
+<section class="screen active" id="beranda">
+  <div class="hero">
+    <div><span class="pill">Ayo belajar interaktif!</span><h2>Kenali bagian-bagian teks anekdot dengan cara yang menyenangkan.</h2>
+    <p>Amati cerita, temukan bagian yang lucu sekaligus menyindir, lalu uji pemahamanmu. Kamu dapat mengulang kegiatan kapan saja.</p>
+    <button class="primary" onclick="go('tujuan')">Mulai belajar →</button></div>
+    <div class="hero-art" aria-hidden="true">📚💬</div>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon">🔎</div><h3>Pelajari</h3><p>Pahami lima struktur teks anekdot dan fungsinya.</p><button class="light" onclick="go('materi')">Buka materi</button></article>
+    <article class="card"><div class="icon">🧩</div><h3>Berlatih</h3><p>Cocokkan potongan cerita dengan struktur yang tepat.</p><button class="light" onclick="go('simulasi')">Mulai simulasi</button></article>
+    <article class="card"><div class="icon">🏆</div><h3>Uji kemampuan</h3><p>Kerjakan kuis dan lihat skor secara langsung.</p><button class="light" onclick="go('kuis')">Mulai kuis</button></article>
+  </div>
+</section>
+
+<section class="screen" id="tujuan">
+  <h2 class="section-title">Tujuan Pembelajaran</h2><p class="lead">Setelah menggunakan MPI ini, peserta didik diharapkan mampu:</p>
+  <div class="card"><ul><li>Menganalisis struktur teks anekdot: <b>abstraksi, orientasi, krisis, reaksi, dan koda</b> dengan tepat.</li><li>Menjelaskan fungsi setiap bagian berdasarkan isi teks.</li><li>Mengemukakan alasan yang logis ketika mengidentifikasi struktur teks.</li><li>Menghubungkan kritik atau sindiran dalam anekdot dengan situasi kehidupan sehari-hari.</li></ul></div>
+  <div class="callout"><b>Petunjuk:</b> Pelajari materi, baca contoh, kerjakan simulasi, lalu selesaikan kuis. Gunakan tombol navigasi di bagian atas untuk berpindah layar.</div>
+  <button class="primary" onclick="go('materi')">Lanjut ke materi →</button>
+</section>
+
+<section class="screen" id="materi">
+  <h2 class="section-title">Materi: Lima Struktur Teks Anekdot</h2><p class="lead">Teks anekdot merupakan cerita singkat yang menghibur dan sering menyampaikan kritik atau sindiran terhadap suatu keadaan.</p>
+  <div class="structure">
+    <div class="step"><b>1. Abstraksi</b><small>Gambaran awal atau ringkasan tentang peristiwa yang akan diceritakan.</small></div>
+    <div class="step"><b>2. Orientasi</b><small>Pengenalan tokoh, waktu, tempat, dan situasi awal.</small></div>
+    <div class="step"><b>3. Krisis</b><small>Masalah atau kejadian tidak biasa yang menjadi inti cerita.</small></div>
+    <div class="step"><b>4. Reaksi</b><small>Tanggapan atau penyelesaian terhadap krisis.</small></div>
+    <div class="step"><b>5. Koda</b><small>Penutup, perubahan keadaan, atau pesan yang dapat dipetik.</small></div>
+  </div>
+  <div class="grid">
+    <article class="card"><h3>🧠 Cara mengenali</h3><p>Tanyakan: bagian ini mengenalkan cerita, memperkenalkan situasi, memunculkan masalah, menanggapi masalah, atau menutup cerita?</p></article>
+    <article class="card"><h3>💬 Ciri penting</h3><p>Anekdot biasanya memuat humor, kejadian unik, dan kritik atau sindiran. Kritik dapat disampaikan secara halus melalui dialog.</p></article>
+    <article class="card"><h3>⚠️ Ingat</h3><p>Tidak semua teks anekdot menampilkan abstraksi atau koda secara eksplisit. Analisislah berdasarkan teks yang dibaca.</p></article>
+  </div>
+  <button class="primary" onclick="go('contoh')">Lihat contoh →</button>
+</section>
+
+<section class="screen" id="contoh">
+  <h2 class="section-title">Contoh Teks Anekdot</h2><p class="lead">Bacalah cerita berikut, lalu perhatikan fungsi setiap bagiannya.</p>
+  <article class="story">
+    <h3>Layanan Super Cepat</h3>
+    <p><span class="story-label">Abstraksi:</span> Di sebuah kantor pelayanan, ada janji tentang layanan yang sangat cepat.</p>
+    <p><span class="story-label">Orientasi:</span> Pada Senin pagi, Bima datang untuk mengurus surat. Di dinding tertulis, “Melayani dengan cepat dan ramah.”</p>
+    <p><span class="story-label">Krisis:</span> Setelah menunggu hampir tiga jam, Bima bertanya, “Pak, apakah layanan cepat itu sedang istirahat?” Petugas menjawab, “Tidak, layanan cepat ada di slogan. Kalau layanan di loket, mohon bersabar.”</p>
+    <p><span class="story-label">Reaksi:</span> Bima tersenyum dan berkata, “Kalau begitu, boleh saya mengurus surat untuk memindahkan slogan itu ke loket?”</p>
+    <p><span class="story-label">Koda:</span> Orang-orang di antrean tertawa kecil. Tulisan tentang layanan cepat itu pun terasa seperti pengingat agar pelayanan benar-benar sesuai janji.</p>
+  </article>
+  <div class="callout"><b>Pikirkan secara kritis:</b> Apa yang disindir dalam cerita tersebut? Apakah humor digunakan untuk menyerang seseorang, atau untuk mengingatkan tentang kualitas pelayanan?</div>
+  <button class="primary" onclick="go('simulasi')">Coba simulasi →</button>
+</section>
+
+<section class="screen" id="simulasi">
+  <h2 class="section-title">Simulasi: Cocokkan Struktur</h2><p class="lead">Pilih struktur yang sesuai untuk setiap potongan cerita, kemudian tekan “Periksa jawaban”.</p>
+  <div class="card" id="matching">
+    <div class="activity-row"><div><b>1.</b> “Pada suatu pagi, seorang siswa datang terlambat ke sekolah.”</div><div><select data-answer="orientasi"><option value="">-- Pilih struktur --</option><option value="abstraksi">Abstraksi</option><option value="orientasi">Orientasi</option><option value="krisis">Krisis</option><option value="reaksi">Reaksi</option><option value="koda">Koda</option></select></div></div>
+    <div class="activity-row"><div><b>2.</b> “Ternyata bel masuk berbunyi ketika ia masih mencari sepatu yang hilang sebelah.”</div><div><select data-answer="krisis"><option value="">-- Pilih struktur --</option><option value="abstraksi">Abstraksi</option><option value="orientasi">Orientasi</option><option value="krisis">Krisis</option><option value="reaksi">Reaksi</option><option value="koda">Koda</option></select></div></div>
+    <div class="activity-row"><div><b>3.</b> “Guru berkata, ‘Besok, siapkan sepatu cadangan di dalam tas!’”</div><div><select data-answer="reaksi"><option value="">-- Pilih struktur --</option><option value="abstraksi">Abstraksi</option><option value="orientasi">Orientasi</option><option value="krisis">Krisis</option><option value="reaksi">Reaksi</option><option value="koda">Koda</option></select></div></div>
+    <div class="activity-row"><div><b>4.</b> “Sejak hari itu, ia selalu menyiapkan perlengkapan sekolah pada malam sebelumnya.”</div><div><select data-answer="koda"><option value="">-- Pilih struktur --</option><option value="abstraksi">Abstraksi</option><option value="orientasi">Orientasi</option><option value="krisis">Krisis</option><option value="reaksi">Reaksi</option><option value="koda">Koda</option></select></div></div>
+    <div class="activity-row"><div><b>5.</b> “Ini kisah tentang pentingnya persiapan sebelum berangkat sekolah.”</div><div><select data-answer="abstraksi"><option value="">-- Pilih struktur --</option><option value="abstraksi">Abstraksi</option><option value="orientasi">Orientasi</option><option value="krisis">Krisis</option><option value="reaksi">Reaksi</option><option value="koda">Koda</option></select></div></div>
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"><button class="primary" onclick="checkMatching()">Periksa jawaban</button><button class="light" onclick="resetMatching()">Ulangi simulasi</button></div>
+    <div id="matchFeedback" class="feedback" aria-live="polite">Jawabanmu akan diperiksa di sini.</div>
+  </div>
+  <button class="secondary" onclick="go('kuis')" style="margin-top:16px">Lanjut ke kuis →</button>
+</section>
+
+<section class="screen" id="kuis">
+  <h2 class="section-title">Kuis Evaluasi</h2><p class="lead">Pilih satu jawaban paling tepat untuk setiap pertanyaan. Skor dihitung setelah kamu menekan tombol periksa.</p>
+  <div class="scoreboard"><div class="scorebox"><span>Jumlah soal</span><strong>5</strong></div><div class="scorebox"><span>Skor maksimal</span><strong>100</strong></div><div class="scorebox"><span>Nilai terakhir</span><strong id="lastScore">—</strong></div></div>
+  <form id="quizForm">
+    <fieldset class="quiz-question"><legend>1. Bagian yang mengenalkan tokoh, waktu, tempat, dan situasi disebut …</legend>
+      <label class="option"><input type="radio" name="q1" value="a"> Abstraksi</label><label class="option"><input type="radio" name="q1" value="b"> Orientasi</label><label class="option"><input type="radio" name="q1" value="c"> Krisis</label><label class="option"><input type="radio" name="q1" value="d"> Koda</label></fieldset>
+    <fieldset class="quiz-question"><legend>2. Bagian yang berisi masalah atau kejadian tidak biasa adalah …</legend>
+      <label class="option"><input type="radio" name="q2" value="a"> Reaksi</label><label class="option"><input type="radio" name="q2" value="b"> Koda</label><label class="option"><input type="radio" name="q2" value="c"> Krisis</label><label class="option"><input type="radio" name="q2" value="d"> Abstraksi</label></fieldset>
+    <fieldset class="quiz-question"><legend>3. Tanggapan tokoh terhadap masalah dalam cerita termasuk …</legend>
+      <label class="option"><input type="radio" name="q3" value="a"> Reaksi</label><label class="option"><input type="radio" name="q3" value="b"> Orientasi</label><label class="option"><input type="radio" name="q3" value="c"> Abstraksi</label><label class="option"><input type="radio" name="q3" value="d"> Koda</label></fieldset>
+    <fieldset class="quiz-question"><legend>4. Fungsi koda dalam teks anekdot adalah …</legend>
+      <label class="option"><input type="radio" name="q4" value="a"> Memperkenalkan tokoh</label><label class="option"><input type="radio" name="q4" value="b"> Menampilkan masalah utama</label><label class="option"><input type="radio" name="q4" value="c"> Menutup cerita atau menegaskan pesan</label><label class="option"><input type="radio" name="q4" value="d"> Menjelaskan latar awal</label></fieldset>
+    <fieldset class="quiz-question"><legend>5. Mengapa teks anekdot sering menggunakan humor atau sindiran?</legend>
+      <label class="option"><input type="radio" name="q5" value="a"> Agar cerita selalu panjang</label><label class="option"><input type="radio" name="q5" value="b"> Untuk menyampaikan kritik dengan cara menarik</label><label class="option"><input type="radio" name="q5" value="c"> Agar tidak memiliki tokoh</label><label class="option"><input type="radio" name="q5" value="d"> Untuk menghilangkan semua masalah</label></fieldset>
+    <button class="primary" type="submit">Periksa skor</button> <button class="light" type="button" onclick="resetQuiz()">Ulangi kuis</button>
+  </form>
+  <div id="quizResult" class="feedback" aria-live="polite">Hasil dan umpan balik akan muncul di sini.</div>
+  <div class="progress" aria-label="Kemajuan kuis"><span id="quizProgress"></span></div>
+</section>
+
+<section class="screen" id="refleksi">
+  <h2 class="section-title">Refleksi dan Penutup</h2><p class="lead">Renungkan proses belajarmu. Refleksi ini tidak memengaruhi skor kuis.</p>
+  <div class="card">
+    <h3>Bagaimana pemahamanmu?</h3>
+    <label class="option"><input type="radio" name="reflection" value="paham"> Saya sudah memahami lima struktur teks anekdot.</label>
+    <label class="option"><input type="radio" name="reflection" value="latihan"> Saya memahami sebagian dan masih perlu latihan.</label>
+    <label class="option"><input type="radio" name="reflection" value="bantuan"> Saya perlu mempelajari materi kembali.</label>
+    <h3>Berpikir kritis</h3><p>Sebutkan satu situasi di sekolah atau masyarakat yang dapat dijadikan ide anekdot. Apa masalahnya, siapa yang terdampak, dan kritik apa yang ingin disampaikan secara santun?</p>
+    <textarea id="reflectionText" rows="4" style="width:100%;padding:12px;border:1px solid #c8d8e0;border-radius:10px;font:inherit" placeholder="Tuliskan refleksi atau ide anekdotmu di sini..."></textarea>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="primary" onclick="saveReflection()">Simpan refleksi di perangkat</button><button class="light" onclick="window.print()">Cetak / simpan PDF</button></div>
+    <div id="reflectionFeedback" class="feedback" aria-live="polite">Refleksi tersimpan hanya di browser perangkat ini.</div>
+  </div>
+  <div class="callout"><b>Pesan akhir:</b> Anekdot yang baik bukan sekadar lucu. Cerita juga mengajak pembaca melihat suatu masalah secara kritis dan menyampaikan kritik dengan bijak.</div>
+  <button class="secondary" onclick="go('beranda')">Kembali ke beranda ↺</button>
+</section>
+</main>
+<footer>MPI Bahasa Indonesia Kelas X SMK · Struktur Teks Anekdot · Dapat digunakan secara offline setelah file dibuka.</footer>
+<script>
+const navButtons=[...document.querySelectorAll('.navbtn')];
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));navButtons.forEach(b=>b.classList.toggle('active',b.dataset.screen===id));window.scrollTo({top:0,behavior:'smooth'});}
+navButtons.forEach(b=>b.addEventListener('click',()=>go(b.dataset.screen)));
+function checkMatching(){
+ const selects=[...document.querySelectorAll('#matching select')];let answered=0,correct=0;
+ selects.forEach(s=>{if(s.value)answered++;if(s.value===s.dataset.answer)correct++;});
+ const box=document.getElementById('matchFeedback');
+ if(answered<selects.length){box.className='feedback bad';box.textContent=`Kamu baru menjawab ${answered} dari ${selects.length} bagian. Lengkapi semua pilihan terlebih dahulu.`;return;}
+ box.className='feedback '+(correct===selects.length?'good':'bad');
+ box.textContent=`Hasil: ${correct} dari ${selects.length} benar (${correct*20}/100). `+(correct===5?'Hebat! Kamu sudah memahami struktur yang ditanyakan.':'Periksa kembali fungsi setiap struktur di menu Materi, lalu coba lagi.');
+}
+function resetMatching(){document.querySelectorAll('#matching select').forEach(s=>s.value='');const b=document.getElementById('matchFeedback');b.className='feedback';b.textContent='Jawabanmu akan diperiksa di sini.';}
+const answerKey={q1:'b',q2:'c',q3:'a',q4:'c',q5:'b'};
+document.getElementById('quizForm').addEventListener('submit',function(e){
+ e.preventDefault();let answered=0,correct=0;const form=new FormData(this);
+ Object.keys(answerKey).forEach(q=>{if(form.has(q)){answered++;if(form.get(q)===answerKey[q])correct++;}});
+ const result=document.getElementById('quizResult');
+ if(answered<5){result.className='feedback bad';result.textContent=`Kamu baru menjawab ${answered} dari 5 soal. Jawab semua soal agar skor dapat dihitung.`;return;}
+ const score=correct*20;document.getElementById('lastScore').textContent=score;document.getElementById('quizProgress').style.width=score+'%';
+ result.className='feedback '+(score>=80?'good':score<60?'bad':'');
+ let message=score>=80?'Sangat baik! Pertahankan kemampuan analisismu.':score>=60?'Cukup baik. Pelajari lagi bagian yang masih membingungkan.':'Ayo pelajari kembali materi dan ulangi kuis.';
+ result.textContent=`Nilai kamu ${score}/100 (${correct} dari 5 jawaban benar). ${message}`;
+});
+function resetQuiz(){document.getElementById('quizForm').reset();document.getElementById('lastScore').textContent='—';document.getElementById('quizProgress').style.width='0';const r=document.getElementById('quizResult');r.className='feedback';r.textContent='Hasil dan umpan balik akan muncul di sini.';}
+function saveReflection(){
+ const choice=document.querySelector('input[name="reflection"]:checked');const note=document.getElementById('reflectionText').value;
+ try{localStorage.setItem('mpiAnekdotReflection',JSON.stringify({choice:choice?choice.value:'',note}));const box=document.getElementById('reflectionFeedback');box.className='feedback good';box.textContent='Refleksi berhasil disimpan di browser perangkat ini. Jika menggunakan mode privat atau menghapus data browser, data dapat hilang.';}
+ catch(e){const box=document.getElementById('reflectionFeedback');box.className='feedback';box.textContent='Browser tidak mengizinkan penyimpanan lokal. Kamu tetap dapat mencetak atau menyimpan halaman sebagai PDF.';}
+}
+try{const saved=JSON.parse(localStorage.getItem('mpiAnekdotReflection')||'null');if(saved){if(saved.choice){const r=document.querySelector(`input[name="reflection"][value="${saved.choice}"]`);if(r)r.checked=true;}document.getElementById('reflectionText').value=saved.note||'';}}catch(e){}
+</script>
+</body>
+</html>
